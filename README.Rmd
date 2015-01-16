@@ -19,12 +19,13 @@ Subjects_train.txt - train subjects
 Results_test.txt - test results  
 Results_train.txt - train results  
 
-####CodeBood 
+####CodeBook  
 CodeBook.Rmd - RStudio generated CodeBook  
 CodeBook.html - HTML version of CodeBook  
 
 ####R Script
 run_analysis.R - R script named per class instructions   
+See CodeBook.Rmd or CodeBook.html for details on processing steps  
 
 ####Output File
 Average_results.txt  

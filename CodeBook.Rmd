@@ -42,7 +42,11 @@ correspond to the subjects. Renamed as Subjects_train.txt and Subjects_test.txt.
 
 ###Processing Steps
 ####Step 1
-1. Select the following results data columns corresponding to mean and standard deviation variables from the Results_train.txt and Results_test.txt files and store the selected columns in Results_train2.txt and Results_test2.txt:
+1. Select the following results data columns corresponding to mean and standard deviation variables from the Results_train.txt and Results_test.txt files.  
+
+Data is stored in numeric form using the following format: 9.9999999e-001.  
+
+Store the selected columns in Results_train2.txt and Results_test2.txt:  
 
 1 tBodyAcc-mean()-X   
 2 tBodyAcc-mean()-Y  
@@ -113,6 +117,8 @@ correspond to the subjects. Renamed as Subjects_train.txt and Subjects_test.txt.
 
 ####Step 2
 2. Add the Subjects_test.txt file into the Results_test2.txt file as column 1. 
+
+Subjects are stored as integer values.  
 
 ####Step 3
 3. Add the Activities_test.txt file into the Results_test2.txt file as column 1.  

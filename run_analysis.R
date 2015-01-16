@@ -3,7 +3,7 @@
 # Create date: 1/15/2015
 
 # Set current local directory
-#setwd("C:/DataScience/GettingandCleaningData/Project/Deliverables")
+setwd("C:/DataScience/GettingandCleaningData/Project/Deliverables")
 
 # Read Results_test and Results_train text files into variables
 Results_test <- read.table("Results_test.txt", sep = "", header = FALSE)

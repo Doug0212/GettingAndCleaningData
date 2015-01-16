@@ -1,0 +1,30 @@
+---
+title: "README"
+author: "Doug0212"
+date: "Friday, January 16, 2015"
+output: html_document
+---
+
+
+####About
+Course Project for Getting and Cleaning Data class of the Data Science class series  
+as produced by John Hopkins Bloomberg School of Public Health and presented under
+Coursera.
+
+####Source Files
+Activity_test.txt - test activities  
+Activity_train.txt - train activities  
+Subjects_test.txt - test subjects  
+Subjects_train.txt - train subjects  
+Results_test.txt - test results  
+Results_train.txt - train results  
+
+####CodeBood 
+CodeBook.Rmd - RStudio generated CodeBook  
+CodeBook.html - HTML version of CodeBook  
+
+####R Script
+run_analysis.R - R script named per class instructions   
+
+####Output File
+Average_results.txt  

@@ -1,0 +1,213 @@
+---
+title: "CodeBook"
+author: "Doug0212"
+date: "Wednesday, January 14, 2015"
+output: html_document
+---
+
+###About
+Course project for "Getting and Cleaning Data" class.  
+Instructions for the project:
+
+"You should create one R script called run_analysis.R that does the following. 
+
+Merges the training and the test sets to create one data set.
+
+Extracts only the measurements on the mean and standard deviation for each measurement. 
+
+Uses descriptive activity names to name the activities in the data set
+
+Appropriately labels the data set with descriptive variable names. 
+
+From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject."
+
+###Source Files
+The source files were retrieved from:
+   https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip.
+
+Source data files are divided into "test" and "train" data files.  
+
+Both sets of data files have the same structures.  
+
+"Test" and "Train" data files each have the following data files:  
+
+1. X_test.txt - contains the actual test data. X_test.txt renamed as Results_test.txt.  
+X_train.txt renamed as Results_train.txt.  
+
+2. y_test.txt - contains a list of numbers of 1 through 6 that correspond
+to the types of activities, e.g. walking, sitting or standing. Renamed as Activities_train.txt and Activities_test.txt.   
+
+3. subject_test.txt - contains a list of numbers between 1 and 30 that
+correspond to the subjects. Renamed as Subjects_train.txt and Subjects_test.txt.  
+
+###Processing Steps
+####Step 1
+1. Select the following results data columns corresponding to mean and standard deviation variables from the Results_train.txt and Results_test.txt files and store the selected columns in Results_train2.txt and Results_test2.txt:
+
+1 tBodyAcc-mean()-X   
+2 tBodyAcc-mean()-Y  
+3 tBodyAcc-mean()-Z  
+4 tBodyAcc-std()-X  
+5 tBodyAcc-std()-Y  
+6 tBodyAcc-std()-Z  
+41 tGravityAcc-mean()-X  
+42 tGravityAcc-mean()-Y  
+43 tGravityAcc-mean()-Z  
+44 tGravityAcc-std()-X  
+45 tGravityAcc-std()-Y  
+46 tGravityAcc-std()-Z  
+81 tBodyAccJerk-mean()-X  
+82 tBodyAccJerk-mean()-Y  
+83 tBodyAccJerk-mean()-Z  
+84 tBodyAccJerk-std()-X  
+85 tBodyAccJerk-std()-Y  
+86 tBodyAccJerk-std()-Z  
+121 tBodyGyro-mean()-X  
+122 tBodyGyro-mean()-Y  
+123 tBodyGyro-mean()-Z  
+124 tBodyGyro-std()-X  
+125 tBodyGyro-std()-Y  
+126 tBodyGyro-std()-Z  
+161 tBodyGyroJerk-mean()-X  
+162 tBodyGyroJerk-mean()-Y  
+163 tBodyGyroJerk-mean()-Z  
+164 tBodyGyroJerk-std()-X  
+165 tBodyGyroJerk-std()-Y  
+166 tBodyGyroJerk-std()-Z  
+201 tBodyAccMag-mean()  
+202 tBodyAccMag-std()  
+214 tGravityAccMag-mean()  
+215 tGravityAccMag-std()  
+227 tBodyAccJerkMag-mean()  
+228 tBodyAccJerkMag-std()  
+240 tBodyGyroMag-mean()  
+241 tBodyGyroMag-std()  
+253 tBodyGyroJerkMag-mean()  
+254 tBodyGyroJerkMag-std()  
+266 fBodyAcc-mean()-X  
+267 fBodyAcc-mean()-Y  
+268 fBodyAcc-mean()-Z  
+269 fBodyAcc-std()-X  
+270 fBodyAcc-std()-Y  
+271 fBodyAcc-std()-Z  
+345 fBodyAccJerk-mean()-X  
+346 fBodyAccJerk-mean()-Y  
+347 fBodyAccJerk-mean()-Z  
+348 fBodyAccJerk-std()-X  
+349 fBodyAccJerk-std()-Y  
+350 fBodyAccJerk-std()-Z  
+424 fBodyGyro-mean()-X  
+425 fBodyGyro-mean()-Y  
+426 fBodyGyro-mean()-Z  
+427 fBodyGyro-std()-X  
+428 fBodyGyro-std()-Y  
+429 fBodyGyro-std()-Z  
+503 fBodyAccMag-mean()  
+504 fBodyAccMag-std()  
+516 fBodyBodyAccJerkMag-mean()  
+517 fBodyBodyAccJerkMag-std()  
+529 fBodyBodyGyroMag-mean()  
+530 fBodyBodyGyroMag-std()  
+542 fBodyBodyGyroJerkMag-mean()  
+543 fBodyBodyGyroJerkMag-std()  
+
+####Step 2
+2. Add the Subjects_test.txt file into the Results_test2.txt file as column 1. 
+
+####Step 3
+3. Add the Activities_test.txt file into the Results_test2.txt file as column 1.  
+
+####Step 4
+4. Add the Subjects_train.txt file into the Results_train2.txt file as column 1. 
+
+####Step 5
+5. Add the Activities_train.txt file into the Results_train2.txt file as column 1.  
+
+####Step 6
+6. Merge the Results_test2 and the Results_train2 data sets into a single data set named Total_results.  
+
+####Step 7
+7. Substitute formal activity names for the activity codes in column 1 of Total_results as follows:
+
+1 = WALKING  
+2 = WALING_UPSTAIRS  
+3 = WALKING_DOWNSTAIRS  
+4 = SITTING  
+5 = STANDING  
+6 = LAYING  
+ 
+####Step 8
+8. Add column headings to Total_results.txt as follows:  
+
+1 = Activity  
+2 = Subject  
+3 = Mean_X_Body_Accel_Tm  
+4 = Mean_Y_Body_Accel_Tm  
+5 = Mean_Z_Body_Accel_Tm  
+6 = Std_X_Body_Accel_Tm  
+7 = Std_Y_Body_Accel_Tm  
+8 = Std_Z_Body_Accel_Tm    
+9 = Mean_X_Gravity_Accel   
+10 = Mean_Y_Gravity_Accel   
+11 = Mean_Z_Gravity_Accel  
+12 = Std_X_Gravity_Accel  
+13 = Std_Y_Gravity_Accel  
+14 = Std_Z_Gravity_Accel  
+15 = Mean_X_Body_Accel_Jerk_Tm  
+16 = Mean_Y_Body_Accel_Jerk_Tm  
+17 = Mean_Z_Body_Accel_Jerk_Tm  
+18 = Std_X_Body_Accel_Jerk_Tm  
+19 = Std_Y_Body_Accel_Jerk_Tm  
+20 = Std_Z_Body_Accel_Jerk_Tm  
+21 = Mean_X_Body_Gyro_Tm  
+22 = Mean_Y_Body_Gyro_Tm  
+23 = Mean_Z_Body_Gyro_Tm  
+24 = Std_X_Body_Gyro_Tm  
+25 = Std_Y_Body_Gyro_Tm  
+26 = Std_Z_Body_Gyro_Tm  
+27 = Mean_X_Body_Gyro_Jerk_Tm  
+28 = Mean_Y_Body_Gyro_Jerk_Tm  
+29 = Mean_Z_Body_Gyro_Jerk_Tm  
+30 = Std_X_Body_Gyro_Jerk_Tm   
+31 = Std_Y_Body_Gyro_Jerk_Tm  
+32 = Std_Z_Body_Gyro_Jerk_Tm  
+33 = Mean_Body_Accel_Mag_Tm  
+34 = Std_Body_Accel_Mag_Tm  
+35 = Mean_Gravity_Accel_Mag   
+36 = Std_Gravity_Accel_Mag  
+37 = Mean_Body_Accel_Jerk_Mag_Tm   
+38 = Std_Body_Accel_Jerk_Mag_Tm  
+39 = Mean_Body_Gyro_Mag  
+40 = Std_Body_Gyro_Mag  
+41 = Mean_Body_Gyro_Jerk_Mag  
+42 = Std_Body_Gyro_Jerk_Mag  
+43 = Mean_X_Body_Accel  
+44 = Mean_Y_Body_Accel  
+45 = Mean_Z_Body_Accel  
+46 = Std_X_Body_Accel  
+47 = Std_Y_Body_Accel  
+48 = Std_Z_Body_Accel  
+49 = Mean_X_Body_Accel_Jerk  
+50 = Mean_Y_Body_Accel_Jerk  
+51 = Mean_Z_Body_Accel_Jerk  
+52 = Std_X_Body_Accel_Jerk  
+53 = Std_Y_Body_Accel_Jerk  
+54 = Std_Z_Body_Accel_Jerk  
+55 = Mean_X_Body_Gyro  
+56 = Mean_Y_Body_Gyro  
+57 = Mean_Z_Body_Gyro  
+58 = Std_X_Body_Gyro  
+59 = Std_Y_Body_Gyro  
+60 = Std_Z_Body_Gyro  
+61 = Mean_Body_Accel_Mag  
+62 = Std_Body_Accel_Mag  
+63 = Mean_Body_Body_Accel_Jerk_Mag   
+64 = Std_Body_Body_Accel_Jerk_Mag  
+65 = Mean_Body_Body_Gyro_Mag   
+66 = Std_Body_Body_Gyro_Mag  
+67 = Mean_Body_Body_Gyro_Jerk_Mag  
+68 = Std_Body_Body_Gyro_Jerk_Mag  
+
+####Step 9
+9. Using the Total_Results data set as input create a new file named Average_Results.txt which averages each variable in columns 3 through 68 by column 1 (Activity) and column 2 (Subject).
+
